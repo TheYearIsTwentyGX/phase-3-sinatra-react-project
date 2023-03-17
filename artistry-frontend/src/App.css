@@ -1,3 +1,7 @@
+:root {
+  --main-panel: #3B4550;
+}
+
 .App {
   text-align: center;
 }
