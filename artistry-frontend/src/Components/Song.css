@@ -1,0 +1,4 @@
+#nameAndInfo {
+    display: flex;
+    flex-direction: column;
+}
