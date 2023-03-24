@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Artist from './Components/Artist';
+import ArtistList from './Components/ArtistList';
 
 function App() {
   const [artists, setArtists] = useState([]);
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      {artists.map(artist => <Artist key={artist.id} props={artist} />)}
+      <ArtistList props={artists}/>
     </div>
   );
 }

@@ -1,0 +1,36 @@
+.artist {
+	display: flex;
+	flex-flow: row wrap;
+	width: max-content;
+	justify-content: center;
+	background-color: var(--main-panel);
+	border-radius: 15px;
+	margin: 15px;
+}
+
+.nameAndInfo {
+	width: max-content;
+}
+
+h1 {
+	font-size: 50px;
+	padding-right: 15px;
+	width: max-content;
+	font-style: italic;
+}
+
+.songList, .artistInfo, h1 {
+	width: max-content;
+	align-self: center;
+}
+
+.artist > div {
+	flex: 20%;
+	color: white;
+	background-color: #15191f;
+	border-radius: 15px;
+	margin: 15px;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+}

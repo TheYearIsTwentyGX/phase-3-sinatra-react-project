@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import "./Artist.css";
+import "./Style/Artist.css";
 import Song from "./Song";
 
 function Artist({ props }) {
@@ -13,22 +13,23 @@ function Artist({ props }) {
 
 	console.info("Artist props", props);
 	return (
-		<div className="outerGrid">
-			<div className="artist">
-				<div id="nameAndInfo">
-					<h1>{props.name}</h1>
-					<div className="artistInfo">
-						<h4>Age: {props.age}</h4>
-						<h4>Birthday: {props.birthdate}</h4>
-						<h4>Hometown: {props.hometown}</h4>
-					</div>
+		<div className="artist">
+			<div className="nameAndInfo">
+				<h1>{props.name}</h1>
+				<div className="artistInfo">
+					<h4>Primary Genre: {props.genre}</h4>
+					<h4>Age: {props.age}</h4>
+					<h4>Birthday: {props.birthdate}</h4>
+					<h4>Hometown: {props.hometown}</h4>
 				</div>
+			</div>
+			{songs.length > 0 ? (
 				<div className="songList">
 					{songs.map((song) => (
 						<Song key={song.id} props={song} />
 					))}
 				</div>
-			</div>
+			) : null}
 		</div>
 	);
 }
