@@ -10,6 +10,10 @@
 
 .nameAndInfo {
 	width: max-content;
+	margin: 15px;
+	padding: 15px;
+	color: white;
+	background-color: #15191f;
 }
 
 h1 {
@@ -26,8 +30,6 @@ h1 {
 
 .artist > div {
 	flex: 20%;
-	color: white;
-	background-color: #15191f;
 	border-radius: 15px;
 	margin: 15px;
 	padding: 15px;

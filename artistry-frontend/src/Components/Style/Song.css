@@ -1,4 +1,14 @@
-#nameAndInfo {
+.song {
     display: flex;
     flex-direction: column;
+	padding-right: 0px;
+	margin-right: 15px;
+	color: white;
+	background-color: #15191f;
+	border-radius: 15px;
+	padding: 0px 15px 0px 15px;
+}
+
+.songInfo {
+	width: max-content;
 }

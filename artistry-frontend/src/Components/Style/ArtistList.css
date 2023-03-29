@@ -1,5 +1,6 @@
 .addButton {
-	background-color: white;
+	background-color: var(--main-panel);
+	color: #15191f;
 	height: 100px;
 	width: 100px;
 	position:fixed;

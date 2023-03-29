@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Route, Routes, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Artist from './Components/Artist';
@@ -15,7 +16,15 @@ function App() {
 
   return (
     <div className="App">
-      <ArtistList props={artists}/>
+		<ArtistList props={artists}/>
+		{/* <Routes>
+
+			<Route exact path="/">
+			</Route>
+			<Route path="/artists/:id">
+				<Artist props={artists}/>
+			</Route>
+		</Routes> */}
     </div>
   );
 }
