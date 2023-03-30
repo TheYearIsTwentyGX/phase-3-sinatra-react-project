@@ -39,18 +39,20 @@ function ArtistForm() {
 				},
 				body: JSON.stringify(formData.song)
 			}).then(response => response.json())
+				.then(data => {console.log(data); return data;})
 				.then(data => history.push(`/artists/${data.artist_id}`));
 		}
-		
-		const newArtist = formData.artist;
-		fetch("http://localhost:9292/artists", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(newArtist)
-		}).then(response => response.json())
-			.then(data => history.push(`/artists/${data.id}`));
+		else {
+			const newArtist = formData.artist;
+			fetch("http://localhost:9292/artists", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(newArtist)
+			}).then(response => response.json())
+				.then(data => history.push(`/artists/${data.id}`));
+		}
 	}
 	function handleInput(e) {
 		console.log(formData.song);

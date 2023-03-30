@@ -14,6 +14,12 @@ class ApplicationController < Sinatra::Base
   post "/artists" do
     Artist.create(params).to_json
   end
+  get "/songs" do
+    Song.all.to_json
+  end
+  post "/songs" do
+    Song.create(params).to_json
+  end
   patch "/artists/:id" do
     Artist.find(params[:id]).update(params).to_json
   end
@@ -34,8 +40,5 @@ class ApplicationController < Sinatra::Base
   end
   delete "/artists/:id/songs/:song_id" do
     Artist.find(params[:id]).songs.find(params[:song_id]).destroy.to_json
-  end
-  get "/songs" do
-    Song.all.to_json
   end
 end
