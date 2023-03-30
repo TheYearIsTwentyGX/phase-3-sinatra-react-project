@@ -20,8 +20,8 @@ function Artist({ ArtistID = null }) {
 	}
 
 	return (
-		<div className="artist" onClick={handleClick}>
-			<div className="nameAndInfo">
+		<div className="artist">
+			<div className="nameAndInfo" onClick={handleClick}>
 				<h1>{props.name}</h1>
 				<div className="artistInfo">
 					<h4>Primary Genre: {props.genre}</h4>

@@ -1,19 +1,23 @@
 .artist {
 	display: flex;
 	flex-flow: row wrap;
+	flex-wrap: wrap;
 	width: max-content;
+	height: min-content;
 	justify-content: center;
 	background-color: var(--main-panel);
 	border-radius: 15px;
 	margin: 15px;
+	padding: 15px;
 }
 
 .nameAndInfo {
 	width: max-content;
-	margin: 15px;
-	padding: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 	color: white;
 	background-color: #15191f;
+	cursor: pointer;
 }
 
 h1 {
@@ -29,10 +33,10 @@ h1 {
 }
 
 .artist > div {
+	padding-left: 15px;
+	padding-right: 15px;
 	flex: 20%;
 	border-radius: 15px;
-	margin: 15px;
-	padding: 15px;
 	display: flex;
 	justify-content: center;
 }

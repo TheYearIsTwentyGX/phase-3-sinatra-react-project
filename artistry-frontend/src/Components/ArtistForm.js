@@ -3,7 +3,7 @@ import './Style/ArtistForm.css';
 import { useHistory } from 'react-router-dom';
 import { useArtists } from '../Context/ArtistContext';
 
-function ArtistForm() {
+function ArtistForm({song = null, artist = null}) {
 
 	const [formData, setFormData] = React.useState({
 		formType: "artist",
@@ -12,7 +12,7 @@ function ArtistForm() {
 			genre: "",
 			album: "",
 			length: 0,
-			artist_id: 0,
+			artist_id: 1,
 			track_number: 0
 		},
 		artist: {
@@ -24,6 +24,11 @@ function ArtistForm() {
 		}
 	});
 	const history = useHistory();
+
+	if (song !== null)
+		setFormData({ ...formData, song: song, formType: "song" });
+	else if (artist !== null)
+		setFormData({ ...formData, artist: artist, formType: "artist" });
 
 	function changeDrop(e) {
 		setFormData({ ...formData, formType: e.target.value });
@@ -41,6 +46,7 @@ function ArtistForm() {
 			}).then(response => response.json())
 				.then(data => {console.log(data); return data;})
 				.then(data => history.push(`/artists/${data.artist_id}`));
+			history.go(0);
 		}
 		else {
 			const newArtist = formData.artist;
@@ -62,8 +68,6 @@ function ArtistForm() {
 		} else {
 			setFormData({ ...formData, song: { ...formData.song, [fValue]: e.target.value } });
 		}
-
-
 	}
 
 	return (
