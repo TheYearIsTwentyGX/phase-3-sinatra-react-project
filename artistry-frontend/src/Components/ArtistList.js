@@ -1,10 +1,13 @@
 import Artist from "./Artist";
 import "./Style/ArtistList.css";
+import { ArtistContext, useArtists } from "../Context/ArtistContext";
+import { useContext, useEffect } from "react";
 
-function ArtistList({props = []}) {
+function ArtistList() {
+	const { artists } = useArtists();
   	return (
 			<div className="artistList">
-				{props.map((artist) => (
+				{artists.map((artist) => (
 					<Artist key={artist.id} props={artist} />
 				))}
 				<div className="addButton">

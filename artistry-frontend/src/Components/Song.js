@@ -1,7 +1,7 @@
 import './Style/Song.css'
 
 function Song({ props, showArtist = false }) {
-  console.log("Song props", props);
+  //console.log("Song props", props);
   return (
     <div className="song">
       <h2>{props.title}</h2>

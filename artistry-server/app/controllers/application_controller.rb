@@ -35,5 +35,7 @@ class ApplicationController < Sinatra::Base
   delete "/artists/:id/songs/:song_id" do
     Artist.find(params[:id]).songs.find(params[:song_id]).destroy.to_json
   end
-
+  get "/songs" do
+    Song.all.to_json
+  end
 end

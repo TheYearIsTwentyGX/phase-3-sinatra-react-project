@@ -7,11 +7,9 @@ function Artist({ props }) {
 	useEffect(() => {
 		fetch(`http://localhost:9292/artists/${props.id}/songs`)
 			.then((res) => res.json())
-			.then((data) => { console.log("data", data); setSongs(data);
+			.then((data) => { /* console.log("data", data); */ setSongs(data);
 		});
 	}, []);
-
-	console.info("Artist props", props);
 	return (
 		<div className="artist">
 			<div className="nameAndInfo">
