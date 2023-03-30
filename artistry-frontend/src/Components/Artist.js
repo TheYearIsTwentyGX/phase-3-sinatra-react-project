@@ -1,15 +1,17 @@
 import {useState, useEffect} from "react";
 import "./Style/Artist.css";
 import Song from "./Song";
+import { useArtists } from "../Context/ArtistContext";
+import { useParams } from "react-router-dom";
 
-function Artist({ props }) {
-	const [songs, setSongs] = useState([]);
-	useEffect(() => {
-		fetch(`http://localhost:9292/artists/${props.id}/songs`)
-			.then((res) => res.json())
-			.then((data) => { /* console.log("data", data); */ setSongs(data);
-		});
-	}, []);
+function Artist({ ArtistID = null }) {
+	let { id } = useParams();
+	const { artists, songs } = useArtists();
+	const Index = ArtistID ?? id;
+	const props = artists.find((artist) => artist.id === parseInt(Index));
+	if (props === undefined)
+		return null;
+	const artistSongs = songs.filter((song) => song.artist_id === props.id);
 	return (
 		<div className="artist">
 			<div className="nameAndInfo">
@@ -23,7 +25,7 @@ function Artist({ props }) {
 			</div>
 			{songs.length > 0 ? (
 				<div className="songList">
-					{songs.map((song) => (
+					{artistSongs.map((song) => (
 						<Song key={song.id} props={song} />
 					))}
 				</div>

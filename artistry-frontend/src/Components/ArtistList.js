@@ -8,7 +8,7 @@ function ArtistList() {
   	return (
 			<div className="artistList">
 				{artists.map((artist) => (
-					<Artist key={artist.id} props={artist} />
+					<Artist key={artist.id} ArtistID={artist.id} />
 				))}
 				<div className="addButton">
 					<div className="addSymbol">

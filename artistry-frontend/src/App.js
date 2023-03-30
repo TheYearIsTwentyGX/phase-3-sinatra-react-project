@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Artist from './Components/Artist';
@@ -13,7 +13,6 @@ function App() {
       .then(response => response.json())
       .then(data => setArtists(data));
   }, []);
-
   return (
     <div className="App">
       <ArtistProvider>
@@ -21,6 +20,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <ArtistList props={artists} />
+          </Route>
+          <Route path='/artists/:id'>
+            <Artist />
           </Route>
         </Switch>
       </ArtistProvider>

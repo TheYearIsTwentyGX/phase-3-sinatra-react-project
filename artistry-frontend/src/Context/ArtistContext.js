@@ -12,9 +12,7 @@ function ArtistProvider({ children }) {
 		fetch("http://localhost:9292/songs")
 			.then((response) => response.json())
 			.then((data) => setSongs(data));
-		console.log("artists", artists, "\nsongs", songs)
-	}, []);
-
+		}, []);
 	return (
 		<ArtistContext.Provider value={{artists, songs}}>
 			{children}
