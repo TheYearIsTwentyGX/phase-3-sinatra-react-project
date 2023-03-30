@@ -17,7 +17,6 @@ function App() {
   return (
     <div className="App">
       <ArtistProvider>
-
         <Switch>
           <Route exact path='/'>
             <ArtistList props={artists} />
@@ -29,6 +28,9 @@ function App() {
             <ArtistForm />
           </Route>
         </Switch>
+        <div className='formDiv'>
+          <ArtistForm></ArtistForm>
+        </div>
       </ArtistProvider>
     </div>
   );
