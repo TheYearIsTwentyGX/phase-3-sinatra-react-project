@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.container {
+	justify-items: center;
+	color: gainsboro;
+}
+h1 {
+	text-align: center;
+	justify-self: center;
+	width: 100%;
+	
+}
+
+form {
+	max-width: 60%;
+	justify-self: center;
+	margin: 0 auto;
+}
+
+form > div {
+	padding-bottom: 20px;
+}
+
+div > label {
+	font-weight: bold;
+	padding-right: 20px;
+}
+
+input {
+	min-width: 10%;
+	max-width: max-content;
+}

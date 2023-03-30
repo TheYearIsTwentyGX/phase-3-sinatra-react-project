@@ -5,6 +5,7 @@ import './App.css';
 import Artist from './Components/Artist';
 import ArtistList from './Components/ArtistList';
 import { ArtistProvider } from './Context/ArtistContext';
+import ArtistForm from './Components/ArtistForm';
 
 function App() {
   const [artists, setArtists] = useState([]);
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path='/artists/:id'>
             <Artist />
+          </Route>
+          <Route path='/AddArtist'>
+            <ArtistForm />
           </Route>
         </Switch>
       </ArtistProvider>
