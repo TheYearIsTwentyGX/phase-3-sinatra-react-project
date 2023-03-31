@@ -6,6 +6,7 @@ import Artist from './Components/Artist';
 import ArtistList from './Components/ArtistList';
 import { ArtistProvider } from './Context/ArtistContext';
 import ArtistForm from './Components/ArtistForm';
+import Song from './Components/Song';
 
 function App() {
   const [artists, setArtists] = useState([]);
@@ -21,11 +22,11 @@ function App() {
           <Route exact path='/'>
             <ArtistList props={artists} />
           </Route>
-          <Route path='/artists/:id'>
+          <Route exact path='/artists/:id'>
             <Artist />
           </Route>
-          <Route path='/AddArtist'>
-            <ArtistForm />
+          <Route>
+            <h1>404 Not Found</h1>
           </Route>
         </Switch>
         <div className='formDiv'>

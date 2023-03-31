@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Style/Artist.css";
 import Song from "./Song";
 import { useArtists } from "../Context/ArtistContext";
@@ -36,10 +36,12 @@ function Artist({ ArtistID = null }) {
 
 	return (
 		<div className="artist">
-			<div >
-
+			<div className="panel">
 				<div className="nameAndInfo" onClick={handleClick}>
-					<h1>{props.name}</h1>
+					<div>
+						<h1>{props.name}</h1>
+						<img onClick={deleteArtist} alt={"Delete " + props.name} src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699013-icon-27-trash-can-512.png" />
+					</div>
 					<div className="artistInfo">
 						<h4>Primary Genre: {props.genre}</h4>
 						<h4>Age: {props.age}</h4>
@@ -47,14 +49,13 @@ function Artist({ ArtistID = null }) {
 						<h4>Hometown: {props.hometown}</h4>
 					</div>
 				</div>
-				<img onClick={deleteArtist} alt={"Delete " + props.name} src="https://th.bing.com/th/id/R.0e8446f0392d95cc1415906097cf1691?rik=%2bw1%2b2rXL55p0RQ" />
 			</div>
 			{songs.length > 0 ? (
-				<div className="songList">
+				<React.Fragment>
 					{artistSongs.map((song) => (
 						<Song key={song.id} props={song} />
-					))}
-				</div>
+						))}
+				</React.Fragment>
 			) : null}
 			<div className="modifyButtons">
 				<img alt="Modify Artist" src="./Assets/Trashcan.png" />
