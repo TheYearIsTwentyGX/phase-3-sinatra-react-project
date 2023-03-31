@@ -43,7 +43,7 @@ function Artist({ ArtistID = null }) {
 			<div className="panel">
 				<div className="nameAndInfo">
 					<div>
-						<h1>{props.name}</h1>
+						<h1 onClick={handleClick} >{props.name}</h1>
 						<img onClick={deleteArtist} alt={"Delete " + props.name} src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699013-icon-27-trash-can-512.png" />
 						<img onClick={editArtist} alt={"Edit " + props.name} src="https://cdn2.iconfinder.com/data/icons/content-edition-solid-style/24/pencil-write-128.png" />
 					</div>

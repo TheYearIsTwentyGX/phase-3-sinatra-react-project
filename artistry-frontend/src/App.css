@@ -3,8 +3,8 @@
 }
 .App {
   text-align: center;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 74% 26%;
 }
 
 .App-logo {

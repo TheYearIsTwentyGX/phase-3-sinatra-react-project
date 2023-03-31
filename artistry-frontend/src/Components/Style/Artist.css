@@ -29,7 +29,7 @@ img {
 	max-height: 50px;
 }
 
-img:hover {
+img:hover, .artistInfo:hover, h1:hover {
 	cursor: pointer;
 }
 

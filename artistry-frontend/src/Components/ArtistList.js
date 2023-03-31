@@ -1,5 +1,4 @@
 import Artist from "./Artist";
-import "./Style/ArtistList.css";
 import { ArtistContext, useArtists } from "../Context/ArtistContext";
 import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
