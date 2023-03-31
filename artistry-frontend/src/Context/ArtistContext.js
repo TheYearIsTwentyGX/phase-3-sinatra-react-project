@@ -5,6 +5,7 @@ const ArtistContext = React.createContext();
 function ArtistProvider({ children }) {
 	const [artists, setArtists] = useState([]);
 	const [songs, setSongs] = useState([]);
+	const [editArtist, setEditArtist] = useState(null);
 	useEffect(() => {
 		fetch("http://localhost:9292/artists")
 			.then((response) => response.json())
@@ -14,7 +15,7 @@ function ArtistProvider({ children }) {
 			.then((data) => setSongs(data));
 		}, []);
 	return (
-		<ArtistContext.Provider value={{artists, setArtists, songs, setSongs}}>
+		<ArtistContext.Provider value={{artists, setArtists, songs, setSongs, editArtist, setEditArtist}}>
 			{children}
 		</ArtistContext.Provider>
 	);

@@ -7,7 +7,7 @@ import { useParams, useHistory } from "react-router-dom";
 function Artist({ ArtistID = null }) {
 	const history = useHistory();
 	let { id } = useParams();
-	const { artists, setArtists, songs, setSongs } = useArtists();
+	const { artists, setArtists, songs, setSongs, setEditArtist } = useArtists();
 	const Index = ArtistID ?? id;
 	const props = artists.find((artist) => artist.id === parseInt(Index));
 	if (props === undefined)
@@ -34,15 +34,20 @@ function Artist({ ArtistID = null }) {
 		history.push("/");
 	}
 
+	function editArtist(e) {
+		setEditArtist(Index);
+	}
+
 	return (
 		<div className="artist">
 			<div className="panel">
-				<div className="nameAndInfo" onClick={handleClick}>
+				<div className="nameAndInfo">
 					<div>
 						<h1>{props.name}</h1>
 						<img onClick={deleteArtist} alt={"Delete " + props.name} src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699013-icon-27-trash-can-512.png" />
+						<img onClick={editArtist} alt={"Edit " + props.name} src="https://cdn2.iconfinder.com/data/icons/content-edition-solid-style/24/pencil-write-128.png" />
 					</div>
-					<div className="artistInfo">
+					<div className="artistInfo" onClick={handleClick}>
 						<h4>Primary Genre: {props.genre}</h4>
 						<h4>Age: {props.age}</h4>
 						<h4>Birthday: {props.birthdate}</h4>
@@ -57,9 +62,6 @@ function Artist({ ArtistID = null }) {
 						))}
 				</React.Fragment>
 			) : null}
-			<div className="modifyButtons">
-				<img alt="Modify Artist" src="./Assets/Trashcan.png" />
-			</div>
 		</div>
 	);
 }
