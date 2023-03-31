@@ -55,12 +55,8 @@ function ArtistForm({ song = null, artist = null }) {
 			}).then(response => response.json())
 				.then(data => {
 					console.log(data);
-					setArtists(artists.map((artist) => {
-						if (artist.id === parseInt(editArtist))
-							return data;
-						else
-							return artist;
-					}));
+					const newArtists = artists.map((artist) => { if (artist.id === parseInt(editArtist)) return formData.artist; else return artist; });
+					setArtists(newArtists);
 					setEditArtist(null);
 					console.log(artists);
 					history.push(`/artists/${editArtist}`);
