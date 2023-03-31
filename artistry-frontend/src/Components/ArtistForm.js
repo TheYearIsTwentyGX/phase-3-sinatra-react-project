@@ -73,7 +73,9 @@ function ArtistForm({ song = null, artist = null }) {
 				}).then(response => response.json())
 					.then(data => { console.log(data); return data; })
 					.then(data => {
-						setSongs({ ...songs, data });
+						const newSongs = songs;
+						newSongs.push(data);
+						setSongs(newSongs);
 						history.push(`/artists/${data.artist_id}`)
 					});
 				//history.go(0);
