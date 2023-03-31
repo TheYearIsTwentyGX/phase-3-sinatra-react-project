@@ -11,13 +11,6 @@ function ArtistList() {
 			{artists.map((artist) => (
 				<Artist key={artist.id} ArtistID={artist.id} />
 			))}
-			<NavLink to="/AddArtist">
-				<div className="addButton">
-					<div className="addSymbol">
-						<p id="addText">+</p>
-					</div>
-				</div>
-			</NavLink>
 		</div>
 	);
 }

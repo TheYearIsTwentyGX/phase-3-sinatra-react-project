@@ -5,6 +5,8 @@ import { useArtists } from '../Context/ArtistContext';
 
 function ArtistForm({song = null, artist = null}) {
 
+	const { artists, setArtists, songs, setSongs } = useArtists();
+
 	const [formData, setFormData] = React.useState({
 		formType: "artist",
 		song: {
@@ -45,8 +47,11 @@ function ArtistForm({song = null, artist = null}) {
 				body: JSON.stringify(formData.song)
 			}).then(response => response.json())
 				.then(data => {console.log(data); return data;})
-				.then(data => history.push(`/artists/${data.artist_id}`));
-			history.go(0);
+				.then(data => {
+					setSongs({...songs, data});
+					history.push(`/artists/${data.artist_id}`)
+				});
+			//history.go(0);
 		}
 		else {
 			const newArtist = formData.artist;

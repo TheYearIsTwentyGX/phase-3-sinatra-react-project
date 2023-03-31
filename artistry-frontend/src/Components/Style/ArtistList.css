@@ -1,3 +1,7 @@
+.artistList {
+	max-width: 75%;
+}
+
 .addButton {
 	background-color: var(--main-panel);
 	color: #15191f;

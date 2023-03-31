@@ -14,7 +14,7 @@ function ArtistProvider({ children }) {
 			.then((data) => setSongs(data));
 		}, []);
 	return (
-		<ArtistContext.Provider value={{artists, songs}}>
+		<ArtistContext.Provider value={{artists, setArtists, songs, setSongs}}>
 			{children}
 		</ArtistContext.Provider>
 	);

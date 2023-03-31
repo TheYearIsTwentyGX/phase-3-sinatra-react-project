@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+.formDiv {
+	position: fixed;
+	max-height: max-content;
+	top: 0;
+	left: 75%;
+}
+
 .container {
 	justify-items: center;
 	color: gainsboro;
@@ -13,7 +20,6 @@ h1 {
 	text-align: center;
 	justify-self: center;
 	width: 100%;
-	
 }
 
 form {
