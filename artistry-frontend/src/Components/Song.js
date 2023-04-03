@@ -9,7 +9,7 @@ function Song({ props, showArtist = false }) {
         { showArtist ? (<h4>Artist: {props.artist}</h4>) : null}
         <h4>Album: {props.album}</h4>
         <h4>Genre: {props.genre}</h4>
-		<h4><b>Length:</b> {`${Math.floor(props.length/60)}:${props.length % 60}`}</h4>
+		<h4><b>Length:</b> {`${Math.floor(props.length/60)}:${(props.length % 60 < 10 ? `0${props.length % 60}` : props.length % 60 )}`}</h4>
       </div>
     </div>
   );
