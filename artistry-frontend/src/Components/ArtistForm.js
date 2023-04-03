@@ -55,14 +55,20 @@ function ArtistForm({artist = null }) {
 			}).then(response => response.json())
 				.then(data => {
 					console.log(data);
-					const newArtists = artists.map((artist) => { if (artist.id === parseInt(editArtist)) return formData.artist; else return artist; });
+					const newArtists = artists.map((artist) => { 
+						if (artist.id === undefined || artist.id === null)
+							return formData.artist;
+						if (artist.id === parseInt(editArtist)) 
+							return formData.artist; 
+						else 
+							return artist;
+					});
 					setArtists(newArtists);
 					setEditArtist(null);
 					console.log(artists);
 					history.push(`/artists/${editArtist}`);
 				});
 		}
-
 		if (formData.formType === "song") {
 			fetch("http://localhost:9292/songs", {
 				method: "POST",
@@ -99,7 +105,7 @@ function ArtistForm({artist = null }) {
 				genre: "",
 				album: "",
 				length: 0,
-				artist_id: artist.id,
+				artist_id: formData.artist.id,
 				track_number: 0
 			},
 			artist: {
