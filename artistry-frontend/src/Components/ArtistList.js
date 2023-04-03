@@ -1,7 +1,5 @@
 import Artist from "./Artist";
-import { ArtistContext, useArtists } from "../Context/ArtistContext";
-import { useContext, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useArtists } from "../Context/ArtistContext";
 
 function ArtistList() {
 	const { artists } = useArtists();

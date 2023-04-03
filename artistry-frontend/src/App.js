@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import Artist from './Components/Artist';
 import ArtistList from './Components/ArtistList';
 import { ArtistProvider } from './Context/ArtistContext';
 import ArtistForm from './Components/ArtistForm';
-import Song from './Components/Song';
 
 function App() {
   const [artists, setArtists] = useState([]);
