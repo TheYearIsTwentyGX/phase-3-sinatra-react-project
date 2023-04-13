@@ -7,6 +7,7 @@ This is a simple repository that provides a React-based UI to interact with a lo
     
     ```cd phase-3-sinatra-react-project/artistry-server && bundle install && bundle exec rake server```
 3. Open a second terminal and run the following command:
+    
     ```cd phase-3-sinatra-react-project/artistry-frontend && npm install && npm start```
 4. Open ```localhost:3000``` if it doesn't open automatically.
 
