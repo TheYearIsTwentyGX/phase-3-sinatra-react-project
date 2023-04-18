@@ -6,10 +6,10 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
   get "/artists" do
-    Artist.all.to_json
+    Artist.all.to_json(only: [:id, :name, :genre, :age, :birthdate, :hometown], include: { songs: { only: [:id, :title, :genre, :length, :artist_id, :album, :track_number] } })
   end
   get "/artists/:id" do
-    Artist.find(params[:id]).to_json
+	Artist.find(params[:id]).to_json(only: [:id, :name, :genre, :age, :birthdate, :hometown], include: { songs: { only: [:id, :title, :genre, :length, :artist_id, :album, :track_number] } })
   end
   post "/artists" do
     Artist.create(params).to_json

@@ -9,7 +9,12 @@ function ArtistProvider({ children }) {
 	useEffect(() => {
 		fetch("http://localhost:9292/artists")
 			.then((response) => response.json())
-			.then((data) => setArtists(data));
+			.then((data) => {
+				for (let artist of data) {
+					setSongs([...songs, artist.songs]); 
+				}
+				return data;})
+			.then((data) => { setArtists(data); console.log(data) });
 		fetch("http://localhost:9292/songs")
 			.then((response) => response.json())
 			.then((data) => setSongs(data));

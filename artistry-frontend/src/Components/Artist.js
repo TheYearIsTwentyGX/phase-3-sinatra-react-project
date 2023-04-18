@@ -12,10 +12,10 @@ function Artist({ ArtistID = null }) {
 	const Index = ArtistID ?? id;
 	//Find the artist with the ID we're looking for, or return null if the artist doesn't exist
 	const props = artists.find((artist) => artist.id === parseInt(Index));
+	console.log(props)
 	if (props === undefined)
 		return null;
-	//Filter the songs to only include the ones by the artist we're looking at
-	const artistSongs = songs.filter((song) => song.artist_id === props.id);
+	const artistSongs = props.songs;
 
 	function handleClick(e) {
 		if (id === undefined)
