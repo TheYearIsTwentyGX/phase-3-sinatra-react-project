@@ -37,6 +37,7 @@ function ArtistForm({artist = null }) {
 		}
 	}, [editArtist]);
 
+	//Change the form between song and artist
 	function changeDrop(e) {
 		setEditArtist(null);
 		setFormData({ ...formData, formType: e.target.value });
@@ -44,7 +45,7 @@ function ArtistForm({artist = null }) {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-
+		//If we're editing an artist, send a PATCH request
 		if (editArtist !== null) {
 			fetch("http://localhost:9292/artists/" + parseInt(editArtist), {
 				method: "PATCH",
@@ -69,6 +70,7 @@ function ArtistForm({artist = null }) {
 					history.push(`/artists/${editArtist}`);
 				});
 		}
+		//If we're adding a song, send a POST request to /songs
 		if (formData.formType === "song") {
 			fetch("http://localhost:9292/songs", {
 				method: "POST",
@@ -84,8 +86,8 @@ function ArtistForm({artist = null }) {
 					setSongs(newSongs);
 					history.push(`/artists/${data.artist_id}`)
 				});
-			//history.go(0);
 		}
+		//If we're adding an artist, send a POST request to /artists
 		else {
 			const newArtist = formData.artist;
 			fetch("http://localhost:9292/artists", {
@@ -97,7 +99,7 @@ function ArtistForm({artist = null }) {
 			}).then(response => response.json())
 				.then(data => history.push(`/artists/${data.id}`));
 		}
-
+		//Resets form data
 		setFormData({
 			formType: "artist",
 			song: {
@@ -117,7 +119,7 @@ function ArtistForm({artist = null }) {
 			}
 		});
 	}
-	
+	//Keeps input in state
 	function handleInput(e) {
 		const fValue = e.target.id.split("-")[1];
 		if (formData.formType === "artist") {

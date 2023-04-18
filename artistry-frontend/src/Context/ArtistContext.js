@@ -6,6 +6,8 @@ function ArtistProvider({ children }) {
 	const [artists, setArtists] = useState([]);
 	const [songs, setSongs] = useState([]);
 	const [editArtist, setEditArtist] = useState(null);
+
+	//Get all songs and artists immediately
 	useEffect(() => {
 		fetch("http://localhost:9292/artists")
 			.then((response) => response.json())

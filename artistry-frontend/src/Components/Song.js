@@ -1,7 +1,8 @@
 import './Style/Song.css'
 
 function Song({ props, showArtist = false }) {
-  //console.log("Song props", props);
+  //Renders an individual song. If showArtist is true, it will show the artist name
+  //showArtist is currently unused, but would be used for displaying a specific song at artist/:id/songs/:id
   return (
     <div className="song">
       <h2>{props.title}</h2>

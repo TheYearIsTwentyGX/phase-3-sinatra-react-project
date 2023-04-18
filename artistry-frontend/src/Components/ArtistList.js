@@ -3,6 +3,7 @@ import { useArtists } from "../Context/ArtistContext";
 
 function ArtistList() {
 	const { artists } = useArtists();
+	//Just returns an array of Artist components
 	return (
 		<div className="artistList">
 			{artists.map((artist) => (

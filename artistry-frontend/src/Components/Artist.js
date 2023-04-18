@@ -17,11 +17,13 @@ function Artist({ ArtistID = null }) {
 	//Filter the songs to only include the ones by the artist we're looking at
 	const artistSongs = songs.filter((song) => song.artist_id === props.id);
 
+	//Send user to artist page
 	function handleClick(e) {
 		if (id === undefined)
 			history.push("/artists/" + parseInt(Index));
 	}
 
+	//Delete artist
 	function deleteArtist(e) {
 		fetch("http://localhost:9292/artists/" + parseInt(Index), {
 			method: "DELETE",
@@ -37,6 +39,7 @@ function Artist({ ArtistID = null }) {
 		history.push("/");
 	}
 
+	//Set's the edit artist, which is used in the ArtistForm component
 	function editArtist(e) {
 		setEditArtist(Index);
 	}
