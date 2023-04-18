@@ -8,10 +8,13 @@ function Artist({ ArtistID = null }) {
 	const history = useHistory();
 	let { id } = useParams();
 	const { artists, setArtists, songs, setSongs, setEditArtist } = useArtists();
+	//If we weren't passed an ID, use the one from the URL
 	const Index = ArtistID ?? id;
+	//Find the artist with the ID we're looking for, or return null if the artist doesn't exist
 	const props = artists.find((artist) => artist.id === parseInt(Index));
 	if (props === undefined)
 		return null;
+	//Filter the songs to only include the ones by the artist we're looking at
 	const artistSongs = songs.filter((song) => song.artist_id === props.id);
 
 	function handleClick(e) {
